@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	font-family: "Inter", sans-serif;
+}
+
+main {
+	width: 412px;
+	height: 667px;
+	border-radius: 15px;
+	border: 1px solid black;
+	margin: 4em auto;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.profile {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	border: 1px solid black;
+	clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+
+.profile img {
+	width: inherit;
+	height: auto;
+	position: relative;
+	/* z-index: -1; */
+}
+
+.content {
+	height: 90%;
+	/* border: 1px dashed black; */
+	position: relative;
+	margin: 2em 1em 0 1em;
+}
+
+.mainsection {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	padding: 1em;
+	border: 1px solid black;
+	/* background-color: #444444; */
+	transition: 1s all ease;
+	visibility: hidden;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	overflow: auto;
+}
+
+.mainsection.shown {
+	display: block;
+	opacity: 100%;
+	visibility: visible;
+}
+
+.mainsection.rightSwipe {
+	left: 100%;
+}
+.mainsection.leftSwipe {
+	left: -100%;
+}
+
+.navigation {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.navigation .toggle {
+	flex-grow: 1;
+	cursor: pointer;
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	padding: 25px 0;
+}
+
+.navigation .toggle i {
+	font-size: 40px;
+}
+
+.navigation .toggle.selected {
+	background-color: antiquewhite;
+	border-radius: 0 0 15px 15px;
+}
+
+.mainsection.connect {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2em;
+	align-items: center;
+}
+
+.link {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+	gap: 0.4em;
+	width: 200px;
+	border: 1px solid black;
+	text-decoration: none;
+}
+
+/* todo: */
+/* 
+    create the cool image switching effect, where the image changes according to the position of the mouse
+    and their is a shadow box indicating the change
+*/
