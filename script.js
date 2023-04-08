@@ -44,8 +44,8 @@ for (let toggle of toggles) {
 		sections[toggles.indexOf(previousToggle)].classList.remove("shown");
 		sections[toggles.indexOf(previousToggle)].classList.add(swipeDirection);
 
-		console.log(toggle);
-		console.log("is set to shown");
+		// console.log(toggle);
+		// console.log("is set to shown");
 
 		sections[toggles.indexOf(toggle)].classList.add("shown");
 
@@ -54,3 +54,22 @@ for (let toggle of toggles) {
 		previousToggle = toggle;
 	});
 }
+
+// animating links reveal:
+
+const links = document.querySelectorAll(".link");
+const blob = document.querySelector(".blob");
+
+let reveal = true; // they must be hidden by default
+
+blob.addEventListener("click", (e) => {
+	if (reveal) {
+		for (let link of links) link.classList.add("revealed");
+	} else {
+		for (let link of links) {
+			link.classList.remove("revealed");
+		}
+	}
+
+	reveal = !reveal;
+});
