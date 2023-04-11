@@ -1,3 +1,6 @@
+let images = ["user1.jpg", "user2.jpeg", "user3.png"];
+let profile = document.querySelector(".profile img");
+
 const toggles = Array.from(document.querySelectorAll(".toggle"));
 const sections = Array.from(document.querySelectorAll(".mainsection"));
 
@@ -22,7 +25,6 @@ let previous2Toggle = toggles[0];
 // }
 
 let swipeDirection = "rightSwipe";
-// let previousSwipeDirection = swipeDirection;
 
 for (let toggle of toggles) {
 	toggle.addEventListener("click", (e) => {
@@ -39,6 +41,24 @@ for (let toggle of toggles) {
 				swipeDirection = "rightSwipe";
 		}
 
+		//
+		// added most recently, change profile image:
+		profile.src = "public/" + images[toggles.indexOf(toggle)];
+		// animate picture swap:
+		profile.animate(
+			[
+				{
+					opacity: 0,
+
+					transform: `rotate(${
+						swipeDirection == "rightSwipe" ? "" : "-"
+					}45deg) scale(.6)`,
+				},
+				{ opacity: 100 },
+			],
+			300
+		);
+		//
 		//removing old classes:
 		previousToggle.classList.remove("selected");
 		sections[toggles.indexOf(previousToggle)].classList.remove("shown");

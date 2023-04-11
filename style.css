@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
+:root {
+	--golden: #ff9d00;
+}
+
 * {
 	padding: 0px;
 	margin: 0px;
@@ -8,7 +12,7 @@
 }
 
 main {
-	width: 412px;
+	width: 349px;
 	height: 667px;
 	border-radius: 15px;
 	border: 1px solid black;
@@ -21,12 +25,14 @@ main {
 }
 
 .profile {
-	width: 120px;
-	height: 120px;
+	width: 100px;
+	height: 100px;
+	background-color: #28284e;
 	position: absolute;
 	z-index: 1;
 	border: 1px solid black;
 	clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+	left: 50%;
 	transform: translate(-50%, -50%);
 	cursor: pointer;
 }
@@ -49,6 +55,7 @@ main {
 	width: 100%;
 	position: absolute;
 	padding: 1em;
+	margin-bottom: 2em;
 	border: 1px solid black;
 	background-color: #2d2b55;
 	transition: 1s all ease;
@@ -61,17 +68,17 @@ main {
 }
 
 .mainsection.shown {
-	display: block;
+	/* display: block; */
 	opacity: 100%;
 	visibility: visible;
 }
 
 .mainsection.rightSwipe {
-	left: 1000px;
+	left: 2000px;
 	transform: rotate(-45deg);
 }
 .mainsection.leftSwipe {
-	left: -1000px;
+	left: -2000px;
 	transform: rotate(45deg);
 }
 
@@ -153,15 +160,81 @@ main {
 }
 /* todo: */
 /* 
-    create the cool image switching effect, where the image changes according to the position of the mouse
+    -[] create the cool image switching effect, where the image changes according to the position of the mouse
     and their is a shadow box indicating the change
+	-[] add network icon click animations: the telegram flies straight, with a box shadow, and twitter flies like a bird!
 */
 
+.bio {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.bio .skill {
+	/* border: 1px solid white; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 50px;
+	/* gap: 2em; */
+}
+
+.bio .bars {
+	/* border: 2px solid blue; */
+	width: 70%;
+	height: 20px;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.bio .bars .bar {
+	width: 100%;
+	height: 20px;
+	position: absolute;
+	border-radius: 20px;
+	border: 1px solid greenyellow;
+}
+.bio .bars .barfill {
+	/* border: 2px solid yellow; */
+	width: 80%;
+	height: 15px;
+	margin: 3px;
+	position: absolute;
+	border-radius: 10px;
+	background: linear-gradient(to right, var(--golden), #f6f6f6, var(--golden));
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.5),
+		0px 0px 20px rgba(0, 0, 0, 0.5), 0px 0px 30px rgba(0, 0, 0, 0.5);
+}
+
+.bio .bars .barfill.skill2 {
+	/* border: 2px solid yellow; */
+	width: 67%;
+	position: absolute;
+}
+
+.bio .bars .barfill.skill3 {
+	/* border: 2px solid yellow; */
+	width: 30%;
+	position: absolute;
+}
+
+.bio .bars .barfill.skill4 {
+	/* border: 2px solid yellow; */
+	width: 70%;
+	position: absolute;
+}
+
+.bio .bars .barfill.skill5 {
+	/* border: 2px solid yellow; */
+	width: 34%;
+	position: absolute;
+}
 .clickable {
 	transition: all 0.2s ease-in-out;
 	cursor: pointer;
 }
 
 .clickable:hover {
-	box-shadow: 0 0 3px 3px #ff9d00;
+	box-shadow: 0 0 3px 3px var(--golden);
 }
