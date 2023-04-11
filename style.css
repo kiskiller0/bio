@@ -169,6 +169,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
+	flex-wrap: nowrap;
 }
 
 .bio .skill {
@@ -176,8 +177,16 @@ main {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 50px;
+	flex-wrap: wrap;
+	/* min-width: 100px; */
+	max-width: 100%;
+	/* height: 50px; */
 	/* gap: 2em; */
+}
+
+.bio .skill + span {
+	width: 30px;
+	border: 1px solid red;
 }
 
 .bio .bars {
@@ -237,4 +246,65 @@ main {
 
 .clickable:hover {
 	box-shadow: 0 0 3px 3px var(--golden);
+}
+/* styling the collapsable bio entries: */
+
+.section {
+	width: 90%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 0.3em;
+	/* align-items: center; */
+}
+
+.section .arrow {
+	/* border: 1px solid red; */
+	cursor: pointer;
+	background-color: #444444;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	transform-origin: center;
+	/* transform: rotate(-45deg); */
+	line-height: 0;
+	/*animating the transition*/
+	transition: all 0.3s ease-in-out;
+}
+
+.section .arrow.selected {
+	transform: rotate(90deg);
+}
+
+.section .arrow + p {
+	max-height: 0;
+	overflow: hidden;
+	border: 1px solid black;
+	transition: all 0.3s ease-in-out;
+}
+
+.section .arrow.selected + p {
+	max-height: 600px;
+}
+
+/* my shot at styling the scrollbar: */
+::-webkit-scrollbar {
+	position: absolute;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }

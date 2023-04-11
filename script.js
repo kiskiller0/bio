@@ -93,3 +93,24 @@ blob.addEventListener("click", (e) => {
 
 	reveal = !reveal;
 });
+
+// collapsible bio paragraphs:
+let arrows = document.querySelectorAll(".arrow");
+let currentArrow = arrows[0];
+
+for (let arrow of arrows) {
+	arrow.addEventListener("click", (e) => {
+		if (currentArrow == arrow) {
+			if (currentArrow.classList.contains("selected")) {
+				currentArrow.classList.remove("selected");
+			} else {
+				currentArrow.classList.add("selected");
+			}
+			return;
+		}
+
+		currentArrow.classList.remove("selected");
+		currentArrow = arrow;
+		currentArrow.classList.add("selected");
+	});
+}
