@@ -51,6 +51,9 @@ main {
 }
 
 .mainsection {
+	/* this hack is for making the scrollbar not add to the width of the mainsection */
+	overflow-y: overlay;
+	/* end of hack */
 	height: 100%;
 	width: 100%;
 	position: absolute;
