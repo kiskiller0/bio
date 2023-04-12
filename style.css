@@ -187,9 +187,9 @@ main {
 	/* gap: 2em; */
 }
 
-.bio .skill + span {
-	width: 30px;
-	border: 1px solid red;
+.bio .skill > span {
+	/* width: 30px; */
+	/* color: red; */
 }
 
 .bio .bars {
@@ -253,7 +253,7 @@ main {
 /* styling the collapsable bio entries: */
 
 .section {
-	width: 90%;
+	width: 100%;
 	margin: auto;
 	display: flex;
 	flex-direction: column;
@@ -265,13 +265,14 @@ main {
 	/* border: 1px solid red; */
 	cursor: pointer;
 	background-color: #444444;
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
 	transform-origin: center;
+	transform: translate(50%, 0);
 	/* transform: rotate(-45deg); */
 	line-height: 0;
 	/*animating the transition*/
